@@ -8,15 +8,10 @@ function App() {
 
 	function getData(age, username) {
 		setUsers(prev => {
-			localStorage.setItem(
-				'data',
-				JSON.stringify([
-					{ age, username, id: Math.random().toString() },
-					...prev,
-				])
-			);
+			const x = [{ age, username, id: Math.random().toString() }, ...prev];
+			localStorage.setItem('data', JSON.stringify(x));
 
-			return [{ age, username, id: Math.random().toString() }, ...prev];
+			return x;
 		});
 	}
 
