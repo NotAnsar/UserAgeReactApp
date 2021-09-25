@@ -1,10 +1,11 @@
+import Wrapper from '../Helpers/Wrapper';
 import Button from '../Ui/Button';
 
 const { default: styled } = require('styled-components');
 
 function Modal(props) {
 	return (
-		<div>
+		<Wrapper>
 			<Overflow onClick={props.OnConfirm}>
 				<Card>
 					<header>
@@ -18,7 +19,7 @@ function Modal(props) {
 					</footer>
 				</Card>
 			</Overflow>
-		</div>
+		</Wrapper>
 	);
 }
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 
 import styled from 'styled-components';
 
@@ -39,7 +39,7 @@ function FormControl(props) {
 	}
 
 	return (
-		<div>
+		<Fragment>
 			{error && (
 				<Modal
 					title={error.title}
@@ -70,7 +70,7 @@ function FormControl(props) {
 					<Button type="submit">Add user</Button>
 				</Form>
 			</Container>
-		</div>
+		</Fragment>
 	);
 }
 

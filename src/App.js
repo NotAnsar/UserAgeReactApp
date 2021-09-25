@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import FormControl from './Component/Form/Form';
 import ResultsList from './Component/ShowResults/ResultsList';
 
@@ -10,7 +10,6 @@ function App() {
 		setUsers(prev => {
 			const x = [{ age, username, id: Math.random().toString() }, ...prev];
 			localStorage.setItem('data', JSON.stringify(x));
-
 			return x;
 		});
 	}
@@ -24,10 +23,10 @@ function App() {
 	}
 
 	return (
-		<div>
+		<Fragment>
 			<FormControl getResult={getData} />
 			<ResultsList displayData={user} removeElement={removeElement} />
-		</div>
+		</Fragment>
 	);
 }
 
