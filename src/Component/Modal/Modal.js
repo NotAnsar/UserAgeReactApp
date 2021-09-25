@@ -2,6 +2,28 @@ import Button from '../Ui/Button';
 
 const { default: styled } = require('styled-components');
 
+function Modal(props) {
+	return (
+		<div>
+			<Overflow onClick={props.OnConfirm}>
+				<Card>
+					<header>
+						<h2>{props.title}</h2>
+					</header>
+					<div>
+						<p>{props.message}</p>
+					</div>
+					<footer>
+						<Button onClick={props.OnConfirm}>Close Modal</Button>
+					</footer>
+				</Card>
+			</Overflow>
+		</div>
+	);
+}
+
+export default Modal;
+
 const Card = styled.div`
 	background: #fff;
 	position: fixed;
@@ -48,24 +70,3 @@ const Overflow = styled.div`
 	z-index: 1;
 	background: rgba(0, 0, 0, 0.75);
 `;
-
-function Modal(props) {
-	return (
-		<div>
-			<Overflow onClick={props.OnConfirm}>
-				<Card>
-					<header>
-						<h2>{props.title}</h2>
-					</header>
-					<div>
-						<p>{props.message}</p>
-					</div>
-					<footer>
-						<Button onClick={props.OnConfirm}>Close Modal</Button>
-					</footer>
-				</Card>
-			</Overflow>
-		</div>
-	);
-}
-export default Modal;

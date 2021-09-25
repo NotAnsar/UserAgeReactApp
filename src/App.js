@@ -3,10 +3,19 @@ import FormControl from './Component/Form/Form';
 import ResultsList from './Component/ShowResults/ResultsList';
 
 function App() {
-	const USERS = [];
+	const USERS = JSON.parse(localStorage.getItem('data')) || [];
 	const [user, setUsers] = useState(USERS);
+
 	function getData(age, username) {
 		setUsers(prev => {
+			localStorage.setItem(
+				'data',
+				JSON.stringify([
+					{ age, username, id: Math.random().toString() },
+					...prev,
+				])
+			);
+
 			return [{ age, username, id: Math.random().toString() }, ...prev];
 		});
 	}
@@ -14,6 +23,7 @@ function App() {
 	function removeElement(id) {
 		setUsers(prev => {
 			const x = prev.filter(result => result.id !== id);
+			localStorage.setItem('data', JSON.stringify(x));
 			return x;
 		});
 	}
